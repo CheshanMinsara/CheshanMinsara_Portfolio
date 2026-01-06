@@ -2,8 +2,13 @@ import { Mail, MapPin, Github, Linkedin, Send } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-t from-muted/50 via-muted/30 to-background" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,hsl(var(--primary)/0.1),transparent_60%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--accent)/0.08),transparent_60%)]" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -21,14 +26,14 @@ const ContactSection = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Contact Info */}
             <div className="space-y-6">
-              <div className="p-6 bg-card rounded-xl border border-border shadow-sm">
+              <div className="p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300">
                 <h3 className="font-display text-lg font-semibold text-foreground mb-6">
                   Get in Touch
                 </h3>
 
                 <div className="space-y-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-2.5 bg-primary/10 text-primary rounded-lg">
+                  <div className="flex items-center gap-4 group">
+                    <div className="p-2.5 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                       <MapPin size={20} />
                     </div>
                     <div>
@@ -37,8 +42,8 @@ const ContactSection = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4">
-                    <div className="p-2.5 bg-accent/10 text-accent rounded-lg">
+                  <div className="flex items-center gap-4 group">
+                    <div className="p-2.5 bg-accent/10 text-accent rounded-lg group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
                       <Mail size={20} />
                     </div>
                     <div>
@@ -55,7 +60,7 @@ const ContactSection = () => {
               </div>
 
               {/* Social Links */}
-              <div className="p-6 bg-card rounded-xl border border-border shadow-sm">
+              <div className="p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300">
                 <h3 className="font-display text-lg font-semibold text-foreground mb-6">
                   Find me online
                 </h3>
@@ -65,7 +70,7 @@ const ContactSection = () => {
                     href="https://github.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-3 p-4 bg-foreground text-background rounded-xl font-medium hover:bg-foreground/90 transition-colors duration-200"
+                    className="flex-1 flex items-center justify-center gap-3 p-4 bg-foreground text-background rounded-xl font-medium hover:bg-foreground/90 transition-all duration-300 hover:scale-105"
                   >
                     <Github size={20} />
                     GitHub
@@ -74,7 +79,7 @@ const ContactSection = () => {
                     href="https://linkedin.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 flex items-center justify-center gap-3 p-4 bg-primary text-primary-foreground rounded-xl font-medium hover:bg-primary/90 transition-colors duration-200"
+                    className="flex-1 flex items-center justify-center gap-3 p-4 bg-gradient-hero text-primary-foreground rounded-xl font-medium hover:opacity-90 transition-all duration-300 hover:scale-105"
                   >
                     <Linkedin size={20} />
                     LinkedIn
@@ -84,7 +89,7 @@ const ContactSection = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="p-6 bg-card rounded-xl border border-border shadow-sm">
+            <div className="p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300">
               <h3 className="font-display text-lg font-semibold text-foreground mb-6">
                 Send a message
               </h3>
@@ -98,7 +103,7 @@ const ContactSection = () => {
                     type="text"
                     id="name"
                     placeholder="Your name"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
                   />
                 </div>
 
@@ -110,7 +115,7 @@ const ContactSection = () => {
                     type="email"
                     id="email"
                     placeholder="your@email.com"
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors"
+                    className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200"
                   />
                 </div>
 
@@ -122,13 +127,13 @@ const ContactSection = () => {
                     id="message"
                     rows={4}
                     placeholder="Write your message..."
-                    className="w-full px-4 py-3 bg-background border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-background/50 border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-200 resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-hero text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity duration-200 shadow-glow"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-hero text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-all duration-300 hover:scale-[1.02] shadow-glow"
                 >
                   <Send size={18} />
                   Send Message

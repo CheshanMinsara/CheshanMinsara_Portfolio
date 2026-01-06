@@ -2,8 +2,12 @@ import { GraduationCap, School, BookOpen, Heart } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 md:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-20 md:py-32 bg-background relative overflow-hidden">
+      {/* Subtle gradient accent */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-accent/5 to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
@@ -34,9 +38,9 @@ const AboutSection = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-primary/10 text-primary rounded-lg">
+                  <div className="p-2.5 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     <GraduationCap size={24} />
                   </div>
                   <div>
@@ -50,9 +54,9 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/20 transition-all duration-300 hover:-translate-y-1 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-accent/10 text-accent rounded-lg">
+                  <div className="p-2.5 bg-accent/10 text-accent rounded-lg group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
                     <School size={24} />
                   </div>
                   <div>
@@ -66,9 +70,9 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-primary/10 text-primary rounded-lg">
+                  <div className="p-2.5 bg-primary/10 text-primary rounded-lg group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                     <BookOpen size={24} />
                   </div>
                   <div>
@@ -82,9 +86,9 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-shadow duration-300">
+              <div className="p-5 bg-card rounded-xl border border-border shadow-sm hover:shadow-md hover:border-accent/20 transition-all duration-300 hover:-translate-y-1 group">
                 <div className="flex items-start gap-4">
-                  <div className="p-2.5 bg-accent/10 text-accent rounded-lg">
+                  <div className="p-2.5 bg-accent/10 text-accent rounded-lg group-hover:bg-accent group-hover:text-accent-foreground transition-colors duration-300">
                     <Heart size={24} />
                   </div>
                   <div>
