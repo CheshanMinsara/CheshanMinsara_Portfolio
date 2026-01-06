@@ -29,8 +29,13 @@ const skillCategories = [
 
 const SkillsSection = () => {
   return (
-    <section id="skills" className="py-20 md:py-32 bg-muted/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 md:py-32 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-muted/30 via-muted/50 to-muted/30" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(var(--primary)/0.08),transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,hsl(var(--accent)/0.08),transparent_50%)]" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
@@ -49,15 +54,15 @@ const SkillsSection = () => {
             {skillCategories.map((category, index) => (
               <div
                 key={category.title}
-                className="p-6 bg-card rounded-xl border border-border shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+                className="p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div
-                    className={`p-2.5 rounded-lg ${
+                    className={`p-2.5 rounded-lg transition-colors duration-300 ${
                       category.color === "primary"
-                        ? "bg-primary/10 text-primary"
-                        : "bg-accent/10 text-accent"
+                        ? "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                        : "bg-accent/10 text-accent group-hover:bg-accent group-hover:text-accent-foreground"
                     }`}
                   >
                     <category.icon size={22} />
@@ -70,7 +75,7 @@ const SkillsSection = () => {
                   {category.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded-lg text-sm font-medium"
+                      className="px-3 py-1.5 bg-secondary/80 text-secondary-foreground rounded-lg text-sm font-medium hover:bg-primary/10 hover:text-primary transition-colors duration-200"
                     >
                       {skill}
                     </span>
